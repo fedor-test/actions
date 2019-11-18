@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: cat $GITHUB_EVENT_PATH
+    - run: printenv
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
